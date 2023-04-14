@@ -67,6 +67,11 @@ export class ClientRegisterUpdateComponent {
         });
       },
       (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo deu errado! Verifique o erro no console.',
+        });
         console.error();
       }
     );
