@@ -1,0 +1,96 @@
+<div class="container d-flex justify-content-center">
+  <div class="panel-body">
+    <h1 class="display-6 m-4 fw-bold" style="text-align: center">
+      {{ clientCpf ? "Atualizar Cadastro" : "Cadastrar" }}
+    </h1>
+    <div class="panel bg-whit shadow p-4 m-4" style="width: 40em">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" action="">
+        <div class="row mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            formControlName="nome"
+            placeholder="Nome"
+            required
+          />
+        </div>
+        <div class="row mb-3">
+          <label for="cpf" class="form-label">CPF</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cpf"
+            formControlName="cpf"
+            required
+            placeholder="CPF"
+          />
+        </div>
+        <div class="row mb-3">
+          <label for="telefone" class="form-label">Telefone</label>
+          <input
+            type="number"
+            class="form-control"
+            id="telefone"
+            formControlName="telefone"
+            placeholder="(00) 00000-0000"
+            mask="(00) 00000-0000"
+          />
+        </div>
+        <div class="row mb-3">
+          <label for="cep" class="form-label">CEP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cep"
+            formControlName="cep"
+            placeholder="CEP"
+            mask="XXXXX-XXX"
+          />
+        </div>
+        <div class="row mb-3">
+          <label for="rua" class="form-label">Logradouro</label>
+          <input
+            type="text"
+            class="form-control"
+            id="logradouro"
+            formControlName="rua"
+            placeholder="Rua, avenida, praça..."
+          />
+        </div>
+        <div class="row mb-3">
+          <label for="Complemento" class="form-label">Complemento</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Complemento"
+            formControlName="complemento"
+            placeholder="Complemento do Endereço"
+          />
+        </div>
+        <div class="row mb-3">
+          <label for="renda" class="form-label">Renda Mensal</label>
+          <input
+            type="number"
+            class="form-control"
+            id="renda"
+            formControlName="rendimentoMensal"
+            placeholder="Renda Mensal"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          [disabled]="!registerForm.valid"
+          class="btn btn-primary"
+        >
+          {{ clientCpf ? "Atualizar" : "Cadastrar" }}
+        </button>
+        <a routerLink="/clientes"
+          ><button type="text" class="btn btn-danger ms-2">Voltar</button></a
+        >
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+  <h1 class="display-6 m-4 fw-bold" style="text-align: center">Clientes</h1>
+  <a routerLink="/clientes/cadastrar" type="button" class="btn btn-success"
+    >Cadastrar Cliente</a
+  >
+  <table class="table table-bordered table-striped mt-3">
+    <thead>
+      <tr>
+        <th scope="col">CPF</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Complemento</th>
+        <th scope="col">CEP</th>
+        <th scope="col">Renda Mensal</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.cpf }}</td>
+        <td>{{ client.nome }}</td>
+        <td>{{ client.telefone }}</td>
+        <td>{{ client.rua }}</td>
+        <td>{{ client.complemento }}</td>
+        <td>{{ client.cep }}</td>
+        <td>{{ client.rendimentoMensal | currency : "BRL" }}</td>
+        <td>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle btn-dark"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Opções
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                  routerLink="/clientes/atualizar/{{ client.cpf }}"
+                  class="dropdown-item"
+                  >Alterar Cadastro</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="deleteClient(client.cpf)"
+                  >Remover Cliente</a
+                >
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
