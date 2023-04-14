@@ -5,7 +5,7 @@
   >
   <table class="table table-bordered table-striped mt-3">
     <thead>
-      <tr>
+      <tr align="center">
         <th scope="col">CPF</th>
         <th scope="col">Nome</th>
         <th scope="col">Telefone</th>
@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let client of clients">
+      <tr *ngFor="let client of clients" align="center">
         <td>{{ client.cpf }}</td>
         <td>{{ client.nome }}</td>
         <td>{{ client.telefone }}</td>
